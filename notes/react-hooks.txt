@@ -1,0 +1,99 @@
+life cycle hooks methods of react are not react hooks.
+React Hooks - these are javascript function which can only be used from inside funcional component or other hooks.
+The hooks have nothing to do with lifecycle hooks of react.
+idea behind using hooks:
+1.expose certain (state) functionalities to functional components like managing state & using life cycle methods different than class based components.
+2. highly reusable code and independent for each component.
+3. you can use one and same hook in multiple functional components.
+4. use hook in each place independent of component being used.
+5. we use hooks to share functionality (not data) b/w components
+6. we can add logic to multiple components but every component will run that logic on its own
+
+Summary:allows to add state,have a life cycle method to functional components and to share logic(state)across components.
+
+naming convention -useXXXXXXX()
+
+useState(initialState,updatedObject);
+check component/ReactHooksApp/Ingredients/IngredientForm.js
+
+useEffects() - it is like componentDidUpdate, runs funcion after every component update;
+->Dependencies of useEffect():
+    useEffect(()=>{
+    console.log("this runs for every render");
+    });
+    useEffect(()=>{
+    console.log("this runs for first time");
+    },[]);
+    useEffect(()=>{
+    console.log("this runs for change in content of variable",initialIngredients);
+    },[initialIngredients]);
+
+rules of hooks:
+1. use any hooks only functional components or other custom hooks
+2. use hooks at root level of your components i.e starting of function.
+3. hooks cant be initiated in the conditional statements
+
+useCallback() - this is mainly used to stop the multiple reloading of afunction due to re-rendering of the react app
+syntax
+    useCallback(function,[Dependencies]);
+
+
+Refs and useRef() = 
+suppose in course we send request to every keystroke to firebase which can spam your server with all requests, hence here we needed to implement some timer so than when timer count completes we will send a request to server.
+Thus to do that you first need to a setTimeout funcion where it check the lastest value and value which was present some time ago. Thus to implement this we need help "Closures" from javascript.
+
+Closures:
+the property of locking a value of a variable before beginning of time.
+
+thus to compare a variable which was some time ago.. we use useRef() hook
+Ex:
+const Demo = React.memo(props=>{
+    const inputRef = useRef();
+    useEffect(()=>{
+        const timer = setTimeout(()=>{
+            //comparing the value of input tag which was some time ago and latest one present in dom
+            if(enteredValue === inputRef.current.value){
+                ... implement the code of sending a request to server to filter the Ingredients in firebase
+            }
+        },500);
+    });
+    render(
+        <input
+            ref={inputRef} // this is valid only in react where we are creating a reference of dom element which in our case it is a input element where inputRef is a object present in our class
+        />
+    )
+})
+
+
+State Batches in react:
+whenever we have multiple setState funtion, in order to avoid un-necessary rendering of components, react tend to update multiple setState at once
+This property is called State Batch
+This is done by react first collects all the setState contiuing the execution of remaining components, then finally it discards the similar and updates the state of the application
+See StateBatching.png
+
+Ex:
+in closeError block of ReactHooksApp/Ingredients,
+we can  see the synchronous setStates present in a smae block. then those setState statements are batched together and ran at once after component is rendered once.
+
+Ref : https://github.com/facebook/react/issues/10231#issuecomment-316644950
+
+
+useReducer() :
+Suppose when you want to change state based on previous state or state of another variable, then you can use useReducer()
+This is similar setstate but the thing is your all application state changing logic will be at one place and moreover the changes to be made can rendered only once, since the reducers compiled only once/
+
+useContext():
+managing the state of components in deep nested ones.
+And also this is used to have global variables in a functional components. This is the best way to handle application data in the place of having props passing all over the application from root to least child (thus method of passing props from root to all over application is called as prop-drilling)
+Note : 
+tried to use ContextProvider without ReactDOM.render() , it doesnt work, so you always need to work on the index.js file for context api
+
+Peformance optimization with useMemo():
+we can optimize our react app by limiting the re-rendering cycles (or un-necessary re-rendering cycles to be precise) of the react components.
+we can also use it as another alternative method on components via React.memo(..)
+
+Getting Started with CUSTOM HOOKS.
+the hook should always be named as useXXX...()
+thus custom hook is normally a javascript function but it is treated differently by react, like accessing stateful features, executing other hooks (whether custom or built in) directly in the component.
+
+Note : whenever you use this hook in different functional components, you tend to get new snapshot of the hook.Thus the state of the component is different for hook used in different component.
