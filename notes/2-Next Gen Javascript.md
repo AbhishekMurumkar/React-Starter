@@ -1,8 +1,12 @@
-# Next Generation Javascript (that below notations will work with babel as javascript pre-processor)
+# Next Generation Javascript
 
-## 1. let & var & const
+(that below notations will work with babel as javascript pre-processor)
 
-let - new var type.
+## 1. [LET & VAR](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) & [CONST](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+
+* let allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used, 
+* unlike the var keyword, which declares a variable globally, or locally to an entire function regardless of block scope. 
+* The other difference between var and let is that the latter is initialized to a value only when a parser evaluates it
 
 ---
 
@@ -307,3 +311,5 @@ Object {
 * [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat?v=b)
 * [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 * [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+
+Next=> [React-Quickstart](./3-ReactQuickStart.md)
