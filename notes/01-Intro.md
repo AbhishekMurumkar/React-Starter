@@ -42,4 +42,4 @@ Introduction to first REACT APP in codepen:
 	* we will have multiple plain html pages with some components of react
 	* thus from the above point we can clearly say that we call the reactdom render() to build respective components UI, there fore we may need to render multiple times
 
-Next: [Next-Gen Javascrip](./2-Next%20Gen%20Javascript.md)
+Next: [Next-Gen Javascript](./02-Next%20Gen%20Javascript.md)

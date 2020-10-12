@@ -312,4 +312,4 @@ Object {
 * [slice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice)
 * [splice()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 
-Next=> [React-Quickstart](./3-ReactQuickStart.md)
+Next=> [React-Quickstart](./03-ReactQuickStart.md)

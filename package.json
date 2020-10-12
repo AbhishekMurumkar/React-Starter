@@ -1,0 +1,22 @@
+{
+  "name": "react-starter",
+  "version": "1.0.0",
+  "description": "Full Hands on Training on React-Redux-Hook-Saga-Thunks and many more",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbhishekMurumkar/React-Starter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbhishekMurumkar/React-Starter/issues"
+  },
+  "homepage": "https://github.com/AbhishekMurumkar/React-Starter#readme",
+  "dependencies": {
+    "create-react-app": "^3.4.1"
+  }
+}
